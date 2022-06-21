@@ -1,4 +1,4 @@
-@Regression
+
   Feature: Registering to Buggy Cards Rating Page
 
   Background:

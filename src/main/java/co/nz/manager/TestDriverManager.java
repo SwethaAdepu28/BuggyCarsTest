@@ -2,14 +2,19 @@ package co.nz.manager;
 
 import co.nz.cucumber.TestContext;
 import co.nz.enums.DriverType;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+
+import static co.nz.utility.Utils.getConfigValue;
 
 public class TestDriverManager {
 
@@ -59,7 +64,7 @@ public class TestDriverManager {
     }
 
     public DriverType getDeviceType() {
-        String platformName = System.getProperty("browser").toLowerCase();
+        String platformName = getConfigValue("default.browser") ;
         switch (platformName) {
             case "chrome":
                 return DriverType.CHROME;
@@ -84,7 +89,14 @@ public class TestDriverManager {
     }
 
     private WebDriver createChromeDriver() throws MalformedURLException {
-        DesiredCapabilities caps = new DesiredCapabilities();
+         WebDriverManager.chromedriver().setup();
+        ChromeOptions desiredCapabilities = new ChromeOptions();
+        //desiredCapabilities.addArguments("headless", "window-size=1920,1080");
+        desiredCapabilities.addArguments("--no-sandbox");
+        desiredCapabilities.addArguments("--disable-dev-shm-usage");
+        desiredCapabilities.addArguments("--incognito");
+        driver = new ChromeDriver(desiredCapabilities);
+        /*DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("os_version", "10");
         caps.setCapability("resolution", "1920x1080");
         caps.setCapability("browser", "Chrome");
@@ -92,7 +104,7 @@ public class TestDriverManager {
         caps.setCapability("os", "Windows");
         caps.setCapability("name", "BStack-[Java] Sample Test"); // test name
         caps.setCapability("build", "BStack Build Number 1"); // CI/CD job or build name
-        final WebDriver driver = new RemoteWebDriver(new URL(URL), caps);
+        final WebDriver driver = new RemoteWebDriver(new URL(URL), caps);*/
         return driver;
     }
 

@@ -1,4 +1,4 @@
-@Regression
+
 Feature: Update profile
 
   Scenario: Update profile

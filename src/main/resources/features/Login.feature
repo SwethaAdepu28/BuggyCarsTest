@@ -1,13 +1,14 @@
-@Regression
-Feature: Login to Buggy cars rating
 
+Feature: Login to Buggy cars rating
+  @Regression
   Scenario Outline: Valid user login
     Given I'm on Buggy Cars Rating home page
     When I enter username "<username>", password "<password>"
+    And I click on login button
     Then logged In username displays in the navigation bar
     Examples:
       | username   | password   |
-      | cde        | cde        |
+      | bcd        | BcdBcd@123        |
 
 
   Scenario: In valid Login

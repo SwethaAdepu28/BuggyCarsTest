@@ -21,6 +21,7 @@ public class LoginPage {
     @FindBy(xpath = "//ul[@class='nav navbar-nav']/li[1]")
     private WebElement usernameOnNav;
 
+
     public LoginPage(TestContext context) throws MalformedURLException {
         testContext = context;
         this.find = testContext.getPageObjectManager().getFindWebElement();
@@ -37,11 +38,10 @@ public class LoginPage {
     }
 
     public boolean displayUserName(String userName){
+        find.waitForTextToAppear(usernameOnNav,"Hi, "+userName);
         if(usernameOnNav.getText().equals("Hi, "+userName)){
             result = true;
         }
         return result;
     }
-
-
 }

@@ -51,6 +51,6 @@ public class LoginSteps {
 
     @Then("logged In username displays in the navigation bar")
     public void loggedInUsernameDisplaysInTheNavigationBar() {
-        Assert.assertTrue(loginPage.displayUserName("cde"));
+        Assert.assertTrue(loginPage.displayUserName("bcd"));
     }
 }

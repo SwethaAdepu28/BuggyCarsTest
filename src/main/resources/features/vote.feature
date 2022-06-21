@@ -1,4 +1,4 @@
-@Regression
+
 Feature: Vote fore a car
 
   Scenario: Vote for a car with comment
