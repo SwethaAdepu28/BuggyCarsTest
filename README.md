@@ -20,7 +20,8 @@ mvn clean test -Dbrowser=chrome -Dcucumber.options="--tags @Regression"
 2. Page object model for easy maintenance, code reusability.
 3. Cross browser automation testing.
 4. Browser stack Integration.
-5. Remote automation testing with CI/CD.
-6. Multi environment execution.
-7. Dependency Injection i.e. ScenarioContext using Pico-Container library.
-8. Customisable detailed test reporting.
+5. Multi environment execution.
+6. Dependency Injection i.e. ScenarioContext using Pico-Container library.
+7. Customisable detailed test reporting.
+8.  Remote automation testing with CI/CD Jenkins.
+![img.png](img.png)
