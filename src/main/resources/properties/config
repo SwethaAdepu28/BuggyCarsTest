@@ -1,0 +1,3 @@
+url=${base.url}
+environment=${env}
+default.browser=chrome
